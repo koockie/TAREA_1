@@ -50,7 +50,7 @@ int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con
         int aleatorio = rand() % 26;
         if (aleatorio !=i && table[2][aleatorio] == 0 ){
             table[2][aleatorio] = table[1][i];
-        //chupalo robert tkm
+
         }
         else i--;
     }
