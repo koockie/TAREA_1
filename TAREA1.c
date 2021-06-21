@@ -64,7 +64,7 @@ int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con
     }
 return 0;
 }
-char* encrypt(char* token, char table[3][26]){
+/*char* encrypt(char* token, char table[3][26]){
     int largo_token = strlen(token);
     printf("su token original es:  %s \n",token);
     for(int i=0;i<largo_token;i++){
@@ -76,4 +76,4 @@ char* encrypt(char* token, char table[3][26]){
     }
     printf("su token codificado es %s \n", token);
     return token;
-}
+}*/
