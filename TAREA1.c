@@ -61,7 +61,7 @@ void recorrer_datos(FILE *texto){ //funcion para recorrer el archivo
         printf("su palabra nota es: %d \n",nota);
         cont ++;
     }
-
+//hola
 }
 int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con letras desordenadas
 
