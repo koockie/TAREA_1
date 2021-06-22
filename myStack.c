@@ -26,7 +26,7 @@ int isEmpty(struct Stack* head_nodo){ //
     }
 }
 
-void *crear_nodo(char nombreee,char apellidooo,int notaaa){ //crea un nodo
+void *crear_nodo(char* nombreee,char* apellidooo,int notaaa){ //crea un nodo
     Nodo* nodo_creado = (Nodo*)malloc(sizeof(Nodo));
     strcpy(nodo_creado->nombre,nombreee);
     strcpy(nodo_creado->apellido,apellidooo);
