@@ -1,4 +1,4 @@
-#include "myStack.h"
+include "myStack.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -34,10 +34,10 @@ struct NODO *crear_nodo(char* nombreee,char* apellidooo,int notaaa){ //crea un n
     nodo_creado->nota = notaaa;
     //printf("nodo creado \n");
     if (primer_nodo ==NULL){
-            primer_nodo = nodo_creado;
-            nodo_creado->next = NULL;
-            nodo_creado->previous = NULL;
-            ultimo_nodo = primer_nodo;
+        primer_nodo = nodo_creado;
+        nodo_creado->next = NULL;
+        nodo_creado->previous = NULL;
+        ultimo_nodo = primer_nodo;
     }
     else{
         ultimo_nodo->next = nodo_creado;
@@ -128,8 +128,3 @@ void imprimir_stack(struct Stack* mi_stack,char table[3][26]){
     }
 
 }
-
-
-
-
-

@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include "myStack.h"
 
-//probando
+
 Nodo* primer_nodo;
 Nodo* ultimo_nodo;
 char encryptionTable[3][26]; //creo la doble lista
@@ -65,13 +65,13 @@ void recorrer_datos(FILE *texto, Stack *mi_stackk){ //funcion para recorrer el a
         //encrypt(apellido,encryptionTable);    ->lo comento porque lo uso directamente como variable de entrada abajo justo
         struct NODO *nuevo_nodo = crear_nodo(encrypt(nombre,encryptionTable), encrypt(apellido,encryptionTable),nota);
         push(mi_stackk,nuevo_nodo); //pusheo al stack cada nodo creado anteriormente
-        printf("todo funciona bn \n");
+
         //decrypt(nombre, encryptionTable);     -->ya sé que funcionan
         //decrypt(apellido, encryptionTable);   --> ya sé que funcionan
         //printf("su palabra nota es: %d \n",nota);   --> ya sé que funciona
         cont ++;
     }
-    //imprimir_stack(mi_stackk);
+    imprimir_stack(mi_stackk,encryptionTable);
 
 }
 int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con letras desordenadas
@@ -85,8 +85,8 @@ int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con
         else i--;
     }
     for(int i=0; i<26;i++){
-       // printf("la letra de esta casilla es %c \n",table[1][i]);
-       // printf("la 2da letra de esta casilla es %c \n",table[2][i]);
+        printf("la letra de esta casilla es %c \n",table[1][i]);
+        printf("la 2da letra de esta casilla es %c \n",table[2][i]);
     }
     return 0;
 }
