@@ -11,7 +11,7 @@ Nodo* ultimo_nodo;
 char encryptionTable[3][26]; //creo la doble lista
 
 //declaracion de funciones
-void recorrer_datos(FILE* );
+void recorrer_datos(FILE*, Stack *mi_stackk);
 int initEncryptionTable(char table[3][26]);
 char* encrypt(char* token, char table[3][26]);
 char* decrypt(char* token, char table[3][26]);
@@ -33,12 +33,13 @@ int main(int argc, char **argv){
         //printf("la 2da letra de esta casilla es %c \n",encryptionTable[2][i]);
     }
     initEncryptionTable(encryptionTable); //llamo la funcion de crear tabla
-    recorrer_datos(archivo);
+    Stack *Mi_stack = getNewStack (25) ;
+    recorrer_datos(archivo, Mi_stack);
 
 }
 
 //funciones
-void recorrer_datos(FILE *texto){ //funcion para recorrer el archivo
+void recorrer_datos(FILE *texto, Stack *mi_stackk){ //funcion para recorrer el archivo y con el
     char palabra[1000];
     char *palabra_token;
     int cont = 0;
@@ -49,6 +50,7 @@ void recorrer_datos(FILE *texto){ //funcion para recorrer el archivo
         int nota;
         fgets (palabra, 1000 ,texto);
 
+        //acá abajo comienzo a asignar los valores para printearlos
         palabra_token = strtok(palabra,",");
         strcpy(nombre,palabra_token); //nombre = palabra_token;
         palabra_token= strtok(NULL, ",");
@@ -59,15 +61,17 @@ void recorrer_datos(FILE *texto){ //funcion para recorrer el archivo
         //printf("su palabra nombre es: %s \n",nombre);
         //printf("su palabra apellido es : %s \n",apellido);
         //printf("su palabra nota es: %d \n",nota);
-        encrypt(nombre,encryptionTable);
-        encrypt(apellido,encryptionTable);
-        //printf("su palabra nota es: %d \n",nota);
-
-        decrypt(nombre, encryptionTable);
-        decrypt(apellido, encryptionTable);
-        //printf("su palabra nota es: %d \n",nota);
+        //encrypt(nombre,encryptionTable);      ->lo comento porque lo uso directamente como variable de entrada abajo justo
+        //encrypt(apellido,encryptionTable);    ->lo comento porque lo uso directamente como variable de entrada abajo justo
+        struct NODO *nuevo_nodo = crear_nodo(encrypt(nombre,encryptionTable), encrypt(apellido,encryptionTable),nota);
+        push(mi_stackk,nuevo_nodo); //pusheo al stack cada nodo creado anteriormente
+        printf("todo funciona bn \n");
+        //decrypt(nombre, encryptionTable);     -->ya sé que funcionan
+        //decrypt(apellido, encryptionTable);   --> ya sé que funcionan
+        //printf("su palabra nota es: %d \n",nota);   --> ya sé que funciona
         cont ++;
     }
+    //imprimir_stack(mi_stackk);
 
 }
 int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con letras desordenadas
@@ -81,8 +85,8 @@ int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con
         else i--;
     }
     for(int i=0; i<26;i++){
-        //printf("la letra de esta casilla es %c \n",table[1][i]);
-        //printf("la 2da letra de esta casilla es %c \n",table[2][i]);
+       // printf("la letra de esta casilla es %c \n",table[1][i]);
+       // printf("la 2da letra de esta casilla es %c \n",table[2][i]);
     }
     return 0;
 }
