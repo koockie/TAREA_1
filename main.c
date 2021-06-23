@@ -14,7 +14,7 @@ char encryptionTable[3][26]; //creo la doble lista
 void recorrer_datos(FILE*, Stack *mi_stackk);
 int initEncryptionTable(char table[3][26]);
 char* encrypt(char* token, char table[3][26]);
-char* decrypt(char* token, char table[3][26]);
+
 
 
 //main
@@ -33,6 +33,7 @@ int main(int argc, char **argv){
         //printf("la 2da letra de esta casilla es %c \n",encryptionTable[2][i]);
     }
     initEncryptionTable(encryptionTable); //llamo la funcion de crear tabla
+    printf("voy a crear la tabla");
     Stack *Mi_stack = getNewStack (25) ;
     recorrer_datos(archivo, Mi_stack);
 
@@ -85,9 +86,12 @@ int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con
         else i--;
     }
     for(int i=0; i<26;i++){
+
         printf("la letra de esta casilla es %c \n",table[1][i]);
         printf("la 2da letra de esta casilla es %c \n",table[2][i]);
+
     }
+    printf("terminé mi abecesario");
     return 0;
 }
 char* encrypt(char* token, char table[3][26]){

@@ -51,6 +51,7 @@ struct NODO *crear_nodo(char* nombreee,char* apellidooo,int notaaa){ //crea un n
 
 Stack* getNewStack (unsigned capacidad_deseada){ //crea un nuevo stack con la capacidad que se ingrese
     struct Stack* mi_stack = (struct Stack*)malloc(sizeof(struct Stack));
+    printf("tabla creada bro");
     mi_stack->num_nodos = 0;
     mi_stack->capacidad_stack = capacidad_deseada;
     mi_stack->header = NULL;
@@ -82,7 +83,8 @@ Stack *push(Stack* stack_creado, struct NODO* nd_agregado){ //agrega un nuevo no
         ((stack_creado)->header)->next = nd_agregado;
         nd_agregado->previous = (stack_creado)->header;
         (stack_creado)->header = nd_agregado;
-        nd_agregado ->previous = NULL;
+        nd_agregado ->next = NULL;
+
 
     }
     return stack_creado;
@@ -92,7 +94,7 @@ Stack *pop(Stack* head_nodo){// quita el primero elemento del stack
     struct NODO *aux = NULL;
     if((head_nodo)->header != NULL){
         aux = (head_nodo)->header;
-        printf("1-voy a cambiar el header hasta el siguiente nodo \n");
+        //printf("1-voy a cambiar el header hasta el siguiente nodo \n");
         (head_nodo)->header = ((head_nodo)->header)->previous;
 
         free(aux);
@@ -107,13 +109,21 @@ Stack *pop(Stack* head_nodo){// quita el primero elemento del stack
 }
 
 void imprimir_stack(struct Stack* mi_stack,char table[3][26]){
-    struct NODO* imprimidor= (mi_stack)->header;
+    struct Stack *imprimidor= (mi_stack);
 
-    if((imprimidor) !=NULL) {
-        for (int i = 0; i < (mi_stack)->num_nodos; i++) {
-            if((imprimidor)->nota >= 55) {
 
-                printf("el nombre es: %s \n",(imprimidor)->nombre);
+    if(((imprimidor)->header !=NULL)) {
+        for (int i = 0; i < 25; i++) {
+            if((imprimidor)->header->nota >= 55) {
+                char nombresito[20];
+                strcpy(nombresito,imprimidor->header->nombre);
+                char apellidisito[20];
+                strcpy(apellidisito,imprimidor->header->apellido);
+
+
+                printf("el nombre es: %s \n",(decrypt(nombresito,table)));
+                printf("el apellido es: %s \n",(decrypt(apellidisito,table)));
+                printf("el nota es: %d \n",((imprimidor)->header)->nota);
                 /*char* nombre_desencriptado = decrypt((imprimidor)->nombre,table);
                 char* apellido_desencriptado = decrypt((imprimidor)->nombre,table);
                 printf("quienes aprobaron son: \n");
