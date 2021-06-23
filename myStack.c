@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+
 Nodo* primer_nodo;
 Nodo* ultimo_nodo;
 
@@ -26,12 +27,12 @@ int isEmpty(struct Stack* head_nodo){ //
     }
 }
 
-void *crear_nodo(char* nombreee,char* apellidooo,int notaaa){ //crea un nodo
-    Nodo* nodo_creado = (Nodo*)malloc(sizeof(Nodo));
+struct NODO *crear_nodo(char* nombreee,char* apellidooo,int notaaa){ //crea un nodo
+    struct NODO* nodo_creado = (struct NODO*)malloc(sizeof(struct NODO));
     strcpy(nodo_creado->nombre,nombreee);
     strcpy(nodo_creado->apellido,apellidooo);
     nodo_creado->nota = notaaa;
-    printf("nodo creado");
+    //printf("nodo creado \n");
     if (primer_nodo ==NULL){
             primer_nodo = nodo_creado;
             nodo_creado->next = NULL;
@@ -44,6 +45,7 @@ void *crear_nodo(char* nombreee,char* apellidooo,int notaaa){ //crea un nodo
         nodo_creado->previous = ultimo_nodo;
         ultimo_nodo = nodo_creado;
     }
+    return nodo_creado;
 }
 
 
@@ -70,19 +72,20 @@ int stackDelete(Stack** stack){ //eliminla el stack y libera la memoria
 
 }
 
-Stack *push(Stack** stack_creado, Nodo* nd_agregado){ //agrega un nuevo nodo al stack ya creado
-    if((*stack_creado)->header ==NULL){
-        (*stack_creado)->num_nodos++;
-        (*stack_creado)->header = nd_agregado;
+Stack *push(Stack* stack_creado, struct NODO* nd_agregado){ //agrega un nuevo nodo al stack ya creado
+    if((stack_creado)->header ==NULL){
+        (stack_creado)->num_nodos++;
+        (stack_creado)->header = nd_agregado;
     }
     else{
-        (*stack_creado)->num_nodos++;
-        ((*stack_creado)->header)->previous = nd_agregado;
-        nd_agregado->next = (*stack_creado)->header;
-        (*stack_creado)->header = nd_agregado;
+        (stack_creado)->num_nodos++;
+        ((stack_creado)->header)->previous = nd_agregado;
+        nd_agregado->next = (stack_creado)->header;
+        (stack_creado)->header = nd_agregado;
         nd_agregado ->previous = NULL;
 
     }
+    return stack_creado;
 }
 
 int pop(Stack* head_nodo){// quita el primero elemento del stack
@@ -102,13 +105,13 @@ int pop(Stack* head_nodo){// quita el primero elemento del stack
 }
 
 void imprimir_stack(Stack* mi_stack){
-    Nodo* imprimidor= (mi_stack)->header;
+    Nodo *imprimidor= (mi_stack)->header;
     if(mi_stack!=NULL) {
         for (int i = 0; i < (mi_stack)->num_nodos; i++) {
             printf("el nombre de esta persona es: %s \n", imprimidor->nombre);
             printf("el apellido de esta persona es: %s \n", imprimidor->apellido);
             printf("la nota de esta persona es: %d \n", imprimidor->nota);
-            imprimidor = (imprimidor)->previous;
+            imprimidor = (imprimidor)->next;
         }
     }
 }
