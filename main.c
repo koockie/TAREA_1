@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include "myStack.h"
 
-
+//probando
 Nodo* primer_nodo;
 Nodo* ultimo_nodo;
 char encryptionTable[3][26]; //creo la doble lista
