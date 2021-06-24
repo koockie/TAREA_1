@@ -58,7 +58,7 @@ Stack* getNewStack (unsigned capacidad_deseada){ //crea un nuevo stack con la ca
     return mi_stack;
 }
 
-int stackDelete(Stack** stack){ //eliminla el stack y libera la memoria
+/*int stackDelete(Stack* stack){ //eliminla el stack y libera la memoria
     if(*stack ==NULL){
         printf("no hay nodo que eliminar,retornaré 0\n");
         return 0;
@@ -71,7 +71,7 @@ int stackDelete(Stack** stack){ //eliminla el stack y libera la memoria
 
     }
 
-}
+}*/
 
 Stack *push(Stack* stack_creado, struct NODO* nd_agregado){ //agrega un nuevo nodo al stack ya creado
     if((stack_creado)->header ==NULL){
@@ -97,7 +97,7 @@ Stack *pop(Stack* head_nodo){// quita el primero elemento del stack
         //printf("1-voy a cambiar el header hasta el siguiente nodo \n");
         (head_nodo)->header = ((head_nodo)->header)->previous;
 
-        free(aux);
+        //free(aux);
         head_nodo->num_nodos--;
         //printf("2- nodo eliminado correctamente \n");
         return head_nodo;
@@ -108,7 +108,7 @@ Stack *pop(Stack* head_nodo){// quita el primero elemento del stack
     }
 }
 
-void imprimir_stack(struct Stack* mi_stack,char table[3][26]){
+struct  NODO imprimir_stack(struct Stack* mi_stack,char table[3][26]){
     struct Stack *imprimidor= (mi_stack);
 
 
@@ -129,6 +129,7 @@ void imprimir_stack(struct Stack* mi_stack,char table[3][26]){
             }
 
             pop((imprimidor));
+
         }
     }
 

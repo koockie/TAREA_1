@@ -4,6 +4,7 @@
 #include <time.h>
 #include <ctype.h>
 #include "myStack.h"
+#include "myABB.h"
 
 
 Nodo* primer_nodo;
