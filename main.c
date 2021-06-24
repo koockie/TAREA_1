@@ -33,7 +33,7 @@ int main(int argc, char **argv){
         //printf("la 2da letra de esta casilla es %c \n",encryptionTable[2][i]);
     }
     initEncryptionTable(encryptionTable); //llamo la funcion de crear tabla
-    printf("voy a crear la tabla");
+    //printf("voy a crear la tabla\n");
     Stack *Mi_stack = getNewStack (25) ;
     recorrer_datos(archivo, Mi_stack);
 
@@ -74,6 +74,7 @@ void recorrer_datos(FILE *texto, Stack *mi_stackk){ //funcion para recorrer el a
     }
     imprimir_stack(mi_stackk,encryptionTable);
 
+
 }
 int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con letras desordenadas
 
@@ -87,11 +88,11 @@ int initEncryptionTable(char table[3][26]){ //funcion que forma la 2da lista con
     }
     for(int i=0; i<26;i++){
 
-        printf("la letra de esta casilla es %c \n",table[1][i]);
-        printf("la 2da letra de esta casilla es %c \n",table[2][i]);
+        //printf("la letra de esta casilla es %c \n",table[1][i]);
+        //printf("la 2da letra de esta casilla es %c \n",table[2][i]);
 
     }
-    printf("terminé mi abecesario");
+    //printf("terminé mi abecesario\n");
     return 0;
 }
 char* encrypt(char* token, char table[3][26]){
@@ -111,7 +112,7 @@ char* encrypt(char* token, char table[3][26]){
 char* decrypt(char* token, char table[3][26]){
     int largo_token = strlen(token);
 
-    for(int i=0; i<largo_token; i++){
+    for(int i=0; i<largo_token; i++){   //FRNOJDCV
         for(int j=0;j<26;j++){
             if(toupper(token[i])==table[2][j]){
                 token[i] = table[1][j];
