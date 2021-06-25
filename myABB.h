@@ -1,4 +1,5 @@
 
+
 #define NLEN 30
 typedef struct HOJAS {
     char nombre[NLEN];
@@ -9,4 +10,6 @@ typedef struct HOJAS {
 }Hoja;
 
 void insertStudent(struct NODO* nodo);
-
+void mostrar_arbol(struct HOJAS* raiz);
+void aprobados(struct HOJAS* nodo);
+void destruir_arbol(struct HOJAS* raiz);

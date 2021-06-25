@@ -68,6 +68,7 @@ void recorrer_datos(FILE *texto, Stack *mi_stackk){ //funcion para recorrer el a
         struct NODO *nuevo_nodo = crear_nodo(encrypt(nombre,encryptionTable), encrypt(apellido,encryptionTable),nota);
         push(mi_stackk,nuevo_nodo); //pusheo al stack cada nodo creado anteriormente
 
+
         //decrypt(nombre, encryptionTable);     -->ya sé que funcionan
         //decrypt(apellido, encryptionTable);   --> ya sé que funcionan
         //printf("su palabra nota es: %d \n",nota);   --> ya sé que funciona

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-
+#include "myABB.h"
 Nodo* primer_nodo;
 Nodo* ultimo_nodo;
 
@@ -92,6 +92,7 @@ Stack *push(Stack* stack_creado, struct NODO* nd_agregado){ //agrega un nuevo no
 
 Stack *pop(Stack* head_nodo){// quita el primero elemento del stack
     struct NODO *aux = NULL;
+    insertStudent(head_nodo->header);
     if((head_nodo)->header != NULL){
         aux = (head_nodo)->header;
         //printf("1-voy a cambiar el header hasta el siguiente nodo \n");
@@ -108,7 +109,7 @@ Stack *pop(Stack* head_nodo){// quita el primero elemento del stack
     }
 }
 
-struct  NODO imprimir_stack(struct Stack* mi_stack,char table[3][26]){
+struct  NODO* imprimir_stack(struct Stack* mi_stack,char table[3][26]){
     struct Stack *imprimidor= (mi_stack);
 
 
