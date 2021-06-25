@@ -45,7 +45,7 @@ void recorrer_datos(FILE *texto, Stack *mi_stackk){ //funcion para recorrer el a
     char palabra[1000];
     char *palabra_token;
     int cont = 0;
-
+    struct HOJAS* raiz_arbol; //será la raiz del arbol que le doy a mi funcion mostrar_arbol
     while(cont <25){
         char nombre[100];
         char apellido[100];
@@ -74,7 +74,9 @@ void recorrer_datos(FILE *texto, Stack *mi_stackk){ //funcion para recorrer el a
         //printf("su palabra nota es: %d \n",nota);   --> ya sé que funciona
         cont ++;
     }
-    imprimir_stack(mi_stackk,encryptionTable);
+
+    raiz_arbol = imprimir_stack(mi_stackk,encryptionTable);
+    mostrar_arbol(raiz_arbol,encryptionTable);
 
 
 }

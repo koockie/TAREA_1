@@ -9,7 +9,9 @@ typedef struct HOJAS {
     struct HOJAS *der;
 }Hoja;
 
-void insertStudent(struct NODO* nodo);
-void mostrar_arbol(struct HOJAS* raiz);
-void aprobados(struct HOJAS* nodo);
+
+
+struct HOJAS* insertStudent(struct NODO* nodo,char table[3][26]);
+void mostrar_arbol(struct HOJAS* raiz,char table[3][26]);
+void aprobados(struct HOJAS* nodo,char table[3][26]);
 void destruir_arbol(struct HOJAS* raiz);
