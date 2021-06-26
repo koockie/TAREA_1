@@ -1,3 +1,9 @@
+/*
+ * @file    : myABB.c
+ * @author  : Marcelo Fernandez
+ * @date    : 25/06/2021
+ * @brief   : implementación de funciones para ABB,  tarea 1 ELO320
+ */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -60,7 +66,11 @@ void aprobados(struct HOJAS* nodo,char table[3][26]){ //la funcion toma un nodo 
     if(nodo->nota >=55){ //imprimo sus datos
         printf( "El alumno %s ", nodo->nombre);
         printf( " %s aprobó con nota: ",nodo->apellido );
-        printf("%d \n",nodo->nota);
+        printf("%d \n ",nodo->nota);
+        if(nodo->nota == 100){ //hay que felicitar a las notas máximas <3
+            printf("      --WOOOW FELICIDADES %s, OBTUVISTE LA NOTA MÁXIMA!!--  \n", nodo->nombre);
+        }
+
 
     }
 }
@@ -71,4 +81,5 @@ void destruir_arbol(struct HOJAS* raiz){
         destruir_arbol(raiz->izq);//destruyo el lado izquierdo con recursividad :c perdón otra vez
         free(raiz);
     }
+
 }

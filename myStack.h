@@ -2,7 +2,7 @@
  * @file    : myStack.h
  * @author  : Marcelo Fernandez
  * @date    : 25/06/2021
- * @brief   : declaración de funciones y estructura para mi stack y sus nodos
+ * @brief   : declaración de funciones y estructura para mi stack y sus nodos,  tarea 1 ELO320
  */
 #define NLEN 30
 typedef struct NODO {
@@ -45,9 +45,9 @@ Stack *getNewStack (unsigned capacidad_deseada) ;// genera un nuevo stack
 /**
  * @brief           : eslimina el stack y sus nodos
  * @param stack       : recibe el stack que deseo eliminar
- * @return          : retorna 1 si se elimina el nodo
+ * @return          : no retorna
  */
-int stackDelete(Stack* stack) ;// elimina el stack y libera la memoria reservada
+void stackDelete(Stack* stack) ;// elimina el stack y libera la memoria reservada
 
 /**
  * @brief           : agrega nuevo elemento al stack
@@ -89,13 +89,7 @@ struct  HOJAS* imprimir_stack(Stack* mi_stack,char table[3][26]);
  */
 char* decrypt(char* token, char table[3][26]);
 
-/**
- * @brief           : reccorre el documento extrayendo los datos de cada persona
- * @param FILE*       : archivo que deseo recorrer
- * @param mi_stack       : stack a donde ingresaré cada dato
- * @return          : no retorna
- */
-void recorrer_datos(FILE* texto, Stack *mi_stackk);
+
 
 /**
  * @brief           : rellena mi tabla de encriptación con las letras aleatorias

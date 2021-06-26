@@ -2,7 +2,7 @@
  * @file    : myABB.h
  * @author  : Marcelo Fernandez
  * @date    : 25/06/2021
- * @brief   : declaración de funciones y estructura para crear arbol binario
+ * @brief   : declaración de funciones y estructura para crear arbol binario, TAREA 1 ELO320
  */
 
 #define NLEN 30

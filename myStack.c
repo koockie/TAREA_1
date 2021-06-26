@@ -2,7 +2,7 @@
  * @file    : myStack.c
  * @author  : Marcelo Fernandez
  * @date    : 25/06/2021
- * @brief   : implementación de funciones para manejo de stack
+ * @brief   : implementación de funciones para manejo de stack, tarea 1 ELO320
  */
 #include "myStack.h"
 #include <stdlib.h>
@@ -63,21 +63,19 @@ Stack* getNewStack (unsigned capacidad_deseada){ //crea un nuevo stack con la ca
     mi_stack->header = NULL;
     return mi_stack;
 }
-
-/*int stackDelete(Stack* stack){ //eliminla el stack y libera la memoria
-    if(*stack ==NULL){
-        printf("no hay nodo que eliminar,retornaré 0\n");
-        return 0;
+void stackDelete(Stack* stack){ //eliminla el stack y libera la memoria
+    if(stack ==NULL){
+        printf("no hay nodo que eliminar\n");
+        return;
     }
     else{
         free(stack);
-        *stack = NULL;
-        printf("stack eliminada correctamente, retornaré 1\n");
-        return 1;
+        printf("stack eliminada correctamente :)... adios\n");
+        return;
 
     }
 
-}*/
+}
 
 Stack *push(Stack* stack_creado, struct NODO* nd_agregado){ //agrega un nuevo nodo al stack ya creado
     if((stack_creado)->header ==NULL){
@@ -125,7 +123,7 @@ struct  HOJAS* imprimir_stack(struct Stack* mi_stack,char table[3][26]){
             char apellidisito[20];
             strcpy(apellidisito,imprimidor->header->apellido);
             if((imprimidor)->header->nota >= 55) {
-                /** si descomento esto me mostrará cada dato del stack creado con los alumnos dentro*/
+                /** si descomento esto me mostrará cada dato del stack creado con los alumnos dentro, pero ya lo hago con el ABB*/
                 /*char nombresito[20];
                 strcpy(nombresito,imprimidor->header->nombre);
                 char apellidisito[20];
