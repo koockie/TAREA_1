@@ -4,7 +4,6 @@
  * @date    : 25/06/2021
  * @brief   : declaración de funciones y estructura para crear arbol binario, TAREA 1 ELO320
  */
-
 #define NLEN 30
 typedef struct HOJAS {
     char nombre[NLEN];
@@ -21,7 +20,7 @@ typedef struct HOJAS {
  * @param table      : tabla de escriptación para trabajar los nombres y apellidos
  * @return          : retorna la hoja actual creada
  */
-struct HOJAS* insertStudent(struct NODO* nodo,char table[3][26]);
+struct HOJAS* insertStudent( struct NODO* nodo,char table[3][26]);
 
 /**
  * @brief           : me muestra el arbol binario y quienes aprobaron en orden
@@ -45,3 +44,4 @@ void aprobados(struct HOJAS* nodo,char table[3][26]);
  * @return          : no retorna
  */
 void destruir_arbol(struct HOJAS* raiz);
+
