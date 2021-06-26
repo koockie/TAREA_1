@@ -1,3 +1,9 @@
+/*
+ * @file    : myStack.c
+ * @author  : Marcelo Fernandez
+ * @date    : 25/06/2021
+ * @brief   : implementación de funciones para manejo de stack
+ */
 #include "myStack.h"
 #include <stdlib.h>
 #include <string.h>
@@ -119,6 +125,7 @@ struct  HOJAS* imprimir_stack(struct Stack* mi_stack,char table[3][26]){
             char apellidisito[20];
             strcpy(apellidisito,imprimidor->header->apellido);
             if((imprimidor)->header->nota >= 55) {
+                /** si descomento esto me mostrará cada dato del stack creado con los alumnos dentro*/
                 /*char nombresito[20];
                 strcpy(nombresito,imprimidor->header->nombre);
                 char apellidisito[20];
@@ -129,8 +136,6 @@ struct  HOJAS* imprimir_stack(struct Stack* mi_stack,char table[3][26]){
                // printf("el apellido es: %s \n",(decrypt(apellidisito,table)));
                // printf("el nota es: %d \n",((imprimidor)->header)->nota);
 
-                //futura_raiz = pop((imprimidor));
-                //raiz_final = insertStudent(futura_raiz);
             }
 
             futura_raiz = pop((imprimidor));

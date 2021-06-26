@@ -12,9 +12,9 @@ Nodo* ultimo_nodo;
 char encryptionTable[3][26]; //creo la doble lista
 
 //declaracion de funciones
-void recorrer_datos(FILE*, Stack *mi_stackk);
+/*void recorrer_datos(FILE*, Stack *mi_stackk);
 int initEncryptionTable(char table[3][26]);
-char* encrypt(char* token, char table[3][26]);
+char* encrypt(char* token, char table[3][26]);*/
 
 
 
